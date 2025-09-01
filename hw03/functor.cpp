@@ -21,6 +21,14 @@ auto addn(int x) {
     return coef;
 }
 
+auto addn2(int x) {
+    return [x](int y) {
+        return [x, y](int z) {
+            return x + y + z;
+        };
+    };
+}
+
 
 struct Functor{
     int sum = 0;
@@ -44,5 +52,6 @@ int main() {
     std::cout << (add(1)(2)(3) << 1) << "\n";
     std::cout << sum(4, 2, 4, 5, 7) << "\n";
     std::cout << addn(1)(100) << "\n";
+    std::cout << addn2(2)(14)(51) << '\n';
     return 0;
 }
