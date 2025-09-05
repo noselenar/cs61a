@@ -79,7 +79,7 @@ def mass(p):
     assert is_planet(p), 'must call mass on a planet'
     "*** YOUR CODE HERE ***"
     return p[1]
-    
+
 def is_planet(p):
     """Whether p is a planet."""
     return type(p) == list and len(p) == 2 and p[0] == 'planet'
@@ -131,9 +131,14 @@ def balanced(m):
     True
     """
     "*** YOUR CODE HERE ***"
+    if is_planet(m):
+        return True
+    else:
+        left_arm, right_arm = left(m), right(m)
+        left_end, right_end = end(left_arm), end(right_arm)
+        flag_balance = length(left_arm) * total_mass(left_end) == length(right_arm) * total_mass(right_end)
+        return flag_balance and balanced(left_end) and balanced(right_end)
 
-
-HW_SOURCE_FILE=__file__
 
 
 def max_path_sum(t):
