@@ -28,6 +28,6 @@ def deep_map(f, s):
             s[i] = f(x)
 
 
-six = [1, 2, [3, [4], 5], 6]
-deep_map(lambda x: x * x, six)
-print(six)
+six = [3, 5]
+six1 = [1, 5, 6]
+print(six + six1)
