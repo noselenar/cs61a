@@ -151,8 +151,24 @@ def max_path_sum(t):
     17
     """
     "*** YOUR CODE HERE ***"
-
-
+    # tree = [num, [tree]]
+    '''
+    max_pm = 0
+    def dfs(t, path_sum = 0):
+        nonlocal max_pm
+        path_sum += label(t)
+        if is_leaf(t):
+            max_pm = max(max_pm, path_sum)
+        for b in branches(t):
+            dfs(b, path_sum)
+    path_sum = 0
+    dfs(t, path_sum)
+    return max_pm  
+    '''
+    if is_leaf(t):
+        return label(t)
+    else:
+        return label(t) + max(max_path_sum(b) for b in branches(t))
 
 # Tree Data Abstraction
 
